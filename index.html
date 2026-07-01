@@ -134,6 +134,10 @@
     max-width: 1100px;
     margin: 0 auto;
   }
+  .cards.single {
+    grid-template-columns: minmax(300px, 420px);
+    justify-content: center;
+  }
 
   .card {
     background: var(--card);
@@ -326,6 +330,7 @@
     const count = Math.min(24, Math.max(1, parseInt(document.getElementById("count").value) || 1));
     const wrap = document.getElementById("cards");
     wrap.innerHTML = "";
+    wrap.classList.toggle("single", count === 1);
     for (let i = 1; i <= count; i++) wrap.appendChild(buildCard(i));
   }
 
